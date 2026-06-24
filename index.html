@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<title>Proposta · Ludmila Carla × Cloud Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light;
+    --navy:#16243f;--navy-deep:#0e1830;--navy-mid:#21365e;--navy-br:#2f4d83;
+    --blue:#3a63ad;--blue-soft:#5b82c4;
+    --ink:#16243f;--body:#3f4a5e;--muted:#71798a;
+    --paper:#ffffff;--mist:#f3f6fb;--mist-2:#e9eef6;--cloud:#f7f9fc;
+    --gray:#8b93a3;--line:rgba(22,36,63,.1);--line-2:rgba(22,36,63,.06);
+    --gold:#b89150;--gold-soft:#cfae6e;
+    --green:#2f9e6b;--rd:#d05c54;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--body);line-height:1.6;overflow-x:hidden}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.06;letter-spacing:-.02em;color:var(--ink)}
+  .anton{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase}
+  .serif{font-family:'Cormorant Garamond',serif}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:64px 0 60px;
+    background:
+      radial-gradient(900px 520px at 82% -8%,rgba(58,99,173,.16),transparent 60%),
+      radial-gradient(700px 460px at -5% 108%,rgba(22,36,63,.08),transparent 60%),
+      linear-gradient(180deg,#fff, var(--cloud));overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
+    background-size:62px 62px;-webkit-mask-image:radial-gradient(760px 480px at 78% 26%,#000,transparent 75%);
+    mask-image:radial-gradient(760px 480px at 78% 26%,#000,transparent 75%);opacity:.7}
+  .hero .wrap{position:relative;z-index:2}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:auto;padding-bottom:54px;gap:20px;flex-wrap:wrap}
+  .brand{display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+  .cloud-logo{height:54px;width:auto;max-width:240px;object-fit:contain;align-self:flex-start;display:block;
+    filter:brightness(0) saturate(100%) invert(13%) sepia(31%) saturate(1400%) hue-rotate(189deg) brightness(95%) contrast(92%)}
+  .slogan{font-size:13px;letter-spacing:.03em;color:var(--blue);font-weight:600}
+  .slogan b{color:var(--navy)}
+  .topbar .tag{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:24px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--blue)}
+  .hero h1{font-size:clamp(38px,7.4vw,76px);text-transform:uppercase;font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.005em;margin-bottom:24px;color:var(--navy)}
+  .hero h1 .hl{background:linear-gradient(100deg,var(--blue),var(--navy));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p.lead{font-size:clamp(16px,2.2vw,20px);color:var(--body);max-width:620px;margin-bottom:36px}
+  .hero p.lead b{color:var(--navy)}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-size:12.5px;padding:8px 15px;border:1px solid var(--line);border-radius:999px;color:var(--body);background:rgba(255,255,255,.7)}
+  .chip b{color:var(--blue);font-weight:700}
+  .scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;z-index:2}
+
+  /* SECTIONS */
+  section.block{padding:88px 0;position:relative;background:var(--paper)}
+  section.tint{background:var(--mist)}
+  /* Seções escuras */
+  section.dark{background:linear-gradient(165deg,var(--navy-deep),var(--navy) 70%,var(--navy-mid))}
+  section.ink{background:linear-gradient(165deg,#0b0f1a,#141d33 80%)}
+  section.dark .sec-eyebrow,section.ink .sec-eyebrow{color:var(--gold-soft)}
+  section.dark .sec-title,section.ink .sec-title{color:#fff}
+  section.dark .sec-sub,section.ink .sec-sub{color:#cdd6e6}
+  section.dark .sec-sub b,section.ink .sec-sub b{color:#fff}
+  /* cards dentro de seção escura */
+  section.dark .stat,section.ink .stat,section.dark .dor,section.ink .dor,section.dark .opp .o,section.ink .opp .o{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);box-shadow:none}
+  section.dark .stat .num,section.ink .stat .num{color:#fff}
+  section.dark .stat .num.blue,section.ink .stat .num.blue{color:var(--blue-soft)}
+  section.dark .stat .lbl,section.ink .stat .lbl,section.dark .dor p,section.ink .dor p,section.dark .opp .o .cap,section.ink .opp .o .cap{color:#aeb9cc}
+  section.dark .dor .tag,section.ink .dor .tag{color:var(--gold-soft)}
+  section.dark .dor h3,section.ink .dor h3{color:#fff}
+  section.dark .opp .o .big,section.ink .opp .o .big{color:var(--blue-soft)}
+  /* specialist blocks dentro de seção escura */
+  section.dark .spec-body .kk,section.ink .spec-body .kk{color:var(--gold-soft)}
+  section.dark .spec-body h3,section.ink .spec-body h3{color:#fff}
+  section.dark .spec-body p,section.ink .spec-body p{color:#cdd6e6}
+  section.dark .spec-body p b,section.ink .spec-body p b{color:#fff}
+  section.dark .mini .tx b,section.ink .mini .tx b{color:#fff}
+  section.dark .mini .tx span,section.ink .mini .tx span{color:#aeb9cc}
+  section.dark .mini .ix,section.ink .mini .ix{color:var(--blue-soft)}
+  section.dark .quote,section.ink .quote{background:rgba(255,255,255,.06);color:#eaeef6;border-left-color:var(--gold-soft)}
+  section.dark .quote b,section.ink .quote b{color:var(--gold-soft)}
+  section.dark .pills span,section.ink .pills span{border-color:rgba(255,255,255,.2);color:#cdd6e6;background:rgba(255,255,255,.05)}
+  section.dark .spec-photo,section.ink .spec-photo{border-color:rgba(255,255,255,.12)}
+  section.dark .spec-photo .badge,section.ink .spec-photo .badge{background:rgba(255,255,255,.92)}
+  section.dark .member,section.ink .member{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+  section.dark .member .nm,section.ink .member .nm{color:#fff}
+  section.dark .member .rl,section.ink .member .rl{color:var(--blue-soft)}
+  section.dark .member .phwrap,section.ink .member .phwrap{background:radial-gradient(120% 80% at 50% 120%,rgba(91,130,196,.22),transparent 72%)}
+  .sec-eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:14px}
+  .sec-title{font-size:clamp(28px,4.6vw,46px);text-transform:uppercase;font-family:'Anton',sans-serif;font-weight:400;margin-bottom:18px;color:var(--navy)}
+  .sec-sub{color:var(--body);max-width:680px;margin-bottom:46px;font-size:16.5px}
+  .sec-sub b{color:var(--navy)}
+
+  /* STATS */
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .stat{border:1px solid var(--line);border-radius:16px;padding:26px 22px;background:#fff;box-shadow:0 10px 26px rgba(22,36,63,.05)}
+  .stat .num{font-family:'Anton',sans-serif;font-size:40px;line-height:1;color:var(--navy)}
+  .stat .num.blue{color:var(--blue)}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+
+  /* DORES */
+  .dor-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .dor{border:1px solid var(--line);border-radius:16px;padding:26px;background:#fff;box-shadow:0 8px 22px rgba(22,36,63,.05)}
+  .dor .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:10px}
+  .dor h3{font-size:18px;margin-bottom:10px;text-transform:none;letter-spacing:-.01em;color:var(--ink)}
+  .dor p{font-size:14px;color:var(--body)}
+
+  /* OPP */
+  .opp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:34px}
+  .opp .o{border:1px solid var(--line);border-radius:16px;padding:28px 24px;background:#fff;text-align:center;box-shadow:0 8px 22px rgba(22,36,63,.05)}
+  .opp .o .big{font-family:'Anton',sans-serif;font-size:36px;color:var(--blue);line-height:1}
+  .opp .o .cap{font-size:13px;color:var(--muted);margin-top:10px}
+  .reveal{border-radius:20px;padding:42px;background:linear-gradient(125deg,var(--navy-deep),var(--navy) 55%,var(--navy-br));text-align:center;color:#fff;box-shadow:0 20px 50px rgba(22,36,63,.25)}
+  .reveal .small{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:10px;font-weight:700}
+  .reveal .money{font-family:'Anton',sans-serif;font-size:clamp(34px,6vw,56px);line-height:1.05;color:#fff}
+  .reveal p{max-width:600px;margin:16px auto 0;font-size:15px;color:#d4ddec}
+  .reveal p b{color:#fff}
+
+  /* TEAM */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .member{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(22,36,63,.06);transition:transform .2s ease,border-color .2s ease}
+  .member:hover{transform:translateY(-4px);border-color:var(--blue-soft)}
+  .member .phwrap{position:relative;height:280px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;border-radius:18px 18px 0 0;
+    background:radial-gradient(120% 80% at 50% 120%,rgba(58,99,173,.16),var(--mist) 72%)}
+  .member .ph{height:272px;width:auto;object-fit:contain;object-position:bottom center;display:block;filter:drop-shadow(0 8px 16px rgba(22,36,63,.18))}
+  .member .info{padding:18px 18px 22px}
+  .member .nm{font-weight:800;font-size:16px;color:var(--ink)}
+  .member .rl{font-size:12.5px;color:var(--blue);font-weight:600;margin-top:3px;text-transform:uppercase;letter-spacing:.04em}
+
+  /* SPEC */
+  .spec{display:grid;grid-template-columns:0.85fr 1.15fr;gap:38px;align-items:center}
+  .spec.rev{grid-template-columns:1.15fr 0.85fr}
+  .spec.rev .spec-photo{order:2}
+  .spec-photo{position:relative;border-radius:24px;overflow:hidden;background:radial-gradient(120% 90% at 50% 110%,rgba(58,99,173,.18),var(--navy) 78%);display:flex;align-items:flex-end;justify-content:center;min-height:420px;border:1px solid var(--line)}
+  .spec-photo img{width:auto;height:auto;max-height:480px;max-width:100%;object-fit:contain;display:block;filter:drop-shadow(0 12px 24px rgba(14,24,48,.4))}
+  .spec-photo .badge{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:11px 16px}
+  .spec-photo .badge .n{font-weight:800;font-size:15px;color:var(--ink)}
+  .spec-photo .badge .r{font-size:11.5px;color:var(--blue);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+  .spec-body .kk{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:12px}
+  .spec-body h3{font-size:clamp(22px,3.2vw,32px);margin-bottom:16px;text-transform:none;letter-spacing:-.02em;line-height:1.12;color:var(--navy)}
+  .spec-body p{color:var(--body);font-size:15.5px;margin-bottom:14px}
+  .spec-body p b{color:var(--navy)}
+  .mini{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:18px}
+  .mini li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
+  .mini .ix{font-family:'Anton',sans-serif;color:var(--blue);font-size:19px;line-height:1.3}
+  .mini .tx b{display:block;font-size:14.5px;margin-bottom:2px;color:var(--ink)}
+  .mini .tx span{font-size:13.5px;color:var(--muted)}
+  .quote{border-left:3px solid var(--blue);padding:16px 20px;background:var(--mist);border-radius:0 12px 12px 0;margin:8px 0 4px;font-size:15.5px;color:var(--ink)}
+  .quote b{color:var(--blue)}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .pills span{font-size:13px;padding:8px 14px;border:1px solid var(--blue-soft);border-radius:999px;color:var(--navy-mid);background:rgba(58,99,173,.06)}
+
+  /* INVEST */
+  .ptab{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 12px 30px rgba(22,36,63,.06)}
+  .prow{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 26px;border-bottom:1px solid var(--line-2)}
+  .prow:last-child{border-bottom:none}
+  .prow .sv{font-size:15.5px;color:var(--ink)}
+  .prow .vl{font-weight:700;font-size:15.5px;color:var(--muted);white-space:nowrap}
+  .prow.sum{background:var(--mist)}
+  .prow.sum .sv{font-weight:700;color:var(--navy)}
+  .prow.sum .vl{color:var(--navy);font-size:17px}
+  .media-note{margin-top:18px;border:1px dashed var(--blue-soft);border-radius:16px;padding:22px 24px;background:rgba(58,99,173,.04)}
+  .media-note h4{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;font-weight:800}
+  .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .media-grid .m{text-align:center;border:1px solid var(--line);border-radius:12px;padding:16px 12px;background:#fff}
+  .media-grid .m .t{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .media-grid .m .v{font-family:'Anton',sans-serif;font-size:26px;color:var(--navy);line-height:1}
+  .media-grid .m.best{border-color:var(--blue);background:rgba(58,99,173,.05)}
+  .media-grid .m.best .v{color:var(--blue)}
+  .media-grid .m .d{font-size:11.5px;color:var(--muted);margin-top:5px}
+  .anchor-wrap{text-align:center;margin-top:40px}
+  .anchor-from{font-size:18px;color:var(--muted)}
+  .anchor-from s{text-decoration-color:var(--rd);text-decoration-thickness:2px}
+  .anchor-price{font-family:'Anton',sans-serif;font-size:clamp(56px,11vw,96px);line-height:.95;margin:6px 0 2px;
+    background:linear-gradient(100deg,var(--blue),var(--navy));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .anchor-price small{font-size:.32em;-webkit-text-fill-color:var(--muted);color:var(--muted)}
+  .save-badge{display:inline-block;margin-top:14px;background:rgba(47,158,107,.1);color:#1f7a50;border:1px solid rgba(47,158,107,.28);font-weight:700;font-size:14px;padding:9px 20px;border-radius:999px}
+
+  /* OFFER (light, sem fundo escuro pra evitar inversão) */
+  .offer{background:linear-gradient(165deg,var(--navy-deep),var(--navy) 60%,var(--navy-mid));text-align:center;color:#fff;border-top:1px solid var(--line)}
+  .offer .sec-eyebrow{color:var(--gold-soft)}
+  .offer .sec-title{color:#fff}
+  .offer .sec-sub{color:#cdd6e6;margin-left:auto;margin-right:auto}
+  .offer .cta{background:linear-gradient(100deg,var(--gold),var(--gold-soft));color:var(--navy-deep);box-shadow:0 12px 40px rgba(184,145,80,.3)}
+  .offer .conditions{border-top-color:rgba(255,255,255,.14)}
+  .offer .cond-title{color:var(--gold-soft)}
+  .offer .cond{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
+  .offer .cond b{color:#fff}
+  .offer .cond span{color:#c2cee0}
+  .cta{display:inline-block;background:linear-gradient(100deg,var(--navy),var(--blue));color:#fff;font-weight:800;font-size:16px;padding:17px 42px;border-radius:999px;text-decoration:none;box-shadow:0 12px 40px rgba(22,36,63,.25);transition:transform .15s ease}
+  .cta:hover{transform:translateY(-2px)}
+  .conditions{max-width:720px;margin:50px auto 0;border-top:1px solid var(--line);padding-top:42px}
+  .cond-title{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:26px;text-align:center}
+  .cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
+  .cond{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:#fff;box-shadow:0 6px 18px rgba(22,36,63,.04)}
+  .cond .ci{font-size:20px;line-height:1.2}
+  .cond b{display:block;font-size:14.5px;margin-bottom:3px;color:var(--ink)}
+  .cond span{font-size:13.5px;color:var(--muted);line-height:1.4}
+
+  /* FOOTER */
+  footer{padding:54px 0;border-top:1px solid var(--line);text-align:center;background:var(--paper)}
+  footer img{height:42px;width:auto;margin-bottom:14px;filter:brightness(0) saturate(100%) invert(13%) sepia(31%) saturate(1400%) hue-rotate(189deg) brightness(95%) contrast(92%)}
+  footer .slogan{justify-content:center;margin-bottom:12px;font-size:14px;display:flex}
+  footer p{color:var(--muted);font-size:13px}
+  footer .big{color:var(--navy);font-weight:600;font-size:15px;margin-bottom:6px}
+
+  @media(max-width:820px){
+    .stat-grid,.team-grid{grid-template-columns:1fr 1fr}
+    .dor-grid,.opp,.cond-grid,.media-grid{grid-template-columns:1fr}
+    .spec,.spec.rev{grid-template-columns:1fr;gap:24px}
+    .spec.rev .spec-photo{order:0}
+    .spec-photo{max-width:360px}
+    section.block{padding:60px 0}
+    .cloud-logo{height:46px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <img src="img/logo.png" alt="Cloud Marketing" class="cloud-logo">
+        <span class="slogan"><b>ideias que descem.</b> resultados sobem.</span>
+      </div>
+      <span class="tag">Proposta Comercial · 2026</span>
+    </div>
+    <span class="eyebrow">Marca Pessoal + Estratégia · Ludmila Carla</span>
+    <h1>Você já tem<br>autoridade. Falta<br><span class="hl">presença.</span></h1>
+    <p class="lead">20 anos de história, clientes que ficam por 8 anos, uma agenda que poderia atender mais. O que falta não é técnica — é fazer a sua <b>história, sua fé e sua experiência</b> trabalharem por você antes de qualquer cliente chegar.</p>
+    <div class="meta">
+      <span class="chip">💅 <b>20 anos</b> de nail design</span>
+      <span class="chip">📍 Belo Horizonte/MG</span>
+      <span class="chip">📸 @ludmilacarlaoficial</span>
+      <span class="chip">🪑 <b>22 cadeiras</b> vazias/mês</span>
+    </div>
+  </div>
+  <span class="scroll-hint">role para ver o diagnóstico ↓</span>
+</header>
+
+<!-- 01 DIAGNÓSTICO -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-eyebrow">01 · O que vimos no @ludmilacarlaoficial</div>
+    <h2 class="sec-title">O retrato da marca</h2>
+    <p class="sec-sub">A Ludmila não tem problema de produto nem de qualidade. Tem uma reputação construída em 20 anos, retenção altíssima e um diferencial que vai além da técnica — acolhimento, escuta e fé. O ponto é <b>visibilidade</b>: três frentes (nail, devocional, finanças) dentro de uma vitrine só, sem uma narrativa que conecte tudo.</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="num blue">20 anos</div><div class="lbl">De atuação como nail designer — autoridade já consolidada no presencial</div></div>
+      <div class="stat"><div class="num">8 anos</div><div class="lbl">Clientes que permanecem fiéis — prova de relacionamento, não só de técnica</div></div>
+      <div class="stat"><div class="num blue">50 / 72</div><div class="lbl">Clientes por mês contra a capacidade real. 22 cadeiras ociosas todo mês</div></div>
+      <div class="stat"><div class="num">3 caixas</div><div class="lbl">Nail, devocional e finanças — vivendo numa timeline sem narrativa que una</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 DORES -->
+<section class="block dark">
+  <div class="wrap">
+    <div class="sec-eyebrow">02 · O que trava o crescimento</div>
+    <h2 class="sec-title">As 4 dores reais</h2>
+    <p class="sec-sub">Você não tem problema de talento — 20 anos e clientes de 8 anos provam isso. O que falta é uma comunicação que faça a sua autoridade chegar a quem ainda não te conhece.</p>
+    <div class="dor-grid">
+      <div class="dor"><div class="tag">Dor 01</div><h3>Autoridade sem alcance</h3><p>A reputação existe e é forte — mas vive presa ao boca a boca. Quem ainda não te conhece não consegue te encontrar, e por isso 22 cadeiras ficam vazias todo mês.</p></div>
+      <div class="dor"><div class="tag">Dor 02</div><h3>Identidade visual que se perdeu</h3><p>O perfil já foi organizado e padronizado, transmitindo profissionalismo. Essa consistência se perdeu — e o público que acompanhava sente falta daquela qualidade visual.</p></div>
+      <div class="dor"><div class="tag">Dor 03</div><h3>Três caixas sem narrativa</h3><p>Nail design, devocional e finanças misturados numa timeline confusa — ou tão separados que parecem três pessoas diferentes. Falta uma âncora de identidade que una tudo.</p></div>
+      <div class="dor"><div class="tag">Dor 04</div><h3>Dependência só de indicação</h3><p>O crescimento depende exclusivamente do boca a boca. Sem presença digital ativa, não há previsibilidade — e a marca pessoal não escala para os futuros cursos e projetos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 OPORTUNIDADE -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-eyebrow">03 · A oportunidade real</div>
+    <h2 class="sec-title">O que ninguém te mostrou</h2>
+    <p class="sec-sub">Você está numa das cidades mais femininas do país, com um público que faz unha toda semana e consome cursos online mais do que qualquer outro. A sua história é exatamente o que converte entre essas mulheres.</p>
+    <div class="opp">
+      <div class="o"><div class="big">1,2 mi</div><div class="cap">de mulheres em Belo Horizonte — a capital mais feminina de Minas Gerais</div></div>
+      <div class="o"><div class="big">86%</div><div class="cap">das brasileiras fazem as unhas ao menos uma vez por semana — o maior índice do mundo</div></div>
+      <div class="o"><div class="big">2/3</div><div class="cap">do público de cursos online no Brasil são mulheres — 45% buscam renda extra</div></div>
+    </div>
+    <div class="reveal">
+      <div class="small">O ativo que você ainda não explorou</div>
+      <div class="money">A sua própria história</div>
+      <p>Existem milhares de nail designers e centenas de influenciadoras de beleza. Mas quase nenhuma combina <b>20 anos de técnica, propósito devocional genuíno e a coragem de uma mulher fazendo, ao vivo, a própria transição</b> — e documentando cada passo. Essa combinação é o produto. Esse processo é o conteúdo. Ninguém compra, porque aconteceu de verdade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 EQUIPE -->
+<section class="block ink">
+  <div class="wrap">
+    <div class="sec-eyebrow">04 · Quem vai cuidar da sua marca</div>
+    <h2 class="sec-title">A equipe Cloud</h2>
+    <p class="sec-sub">Não é um freelancer fazendo de tudo um pouco. É um time de especialistas, cada um olhando a marca da Ludmila pelo seu ângulo.</p>
+    <div class="team-grid">
+      <div class="member"><div class="phwrap"><img class="ph" src="img/isamelody.png" alt="Isa Melody"></div><div class="info"><div class="nm">Isa Melody</div><div class="rl">Account Manager</div></div></div>
+      <div class="member"><div class="phwrap"><img class="ph" src="img/cris.png" alt="Cristine"></div><div class="info"><div class="nm">Cristine</div><div class="rl">Designer</div></div></div>
+      <div class="member"><div class="phwrap"><img class="ph" src="img/vinicius.png" alt="Vinícius Rocha"></div><div class="info"><div class="nm">Vinícius Rocha</div><div class="rl">Gestor de Tráfego</div></div></div>
+      <div class="member"><div class="phwrap"><img class="ph" src="img/isabel.png" alt="Isabel"></div><div class="info"><div class="nm">Isabel</div><div class="rl">Vídeo & Conteúdo</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ISA -->
+<section class="block">
+  <div class="wrap">
+    <div class="spec">
+      <div class="spec-photo">
+        <img src="img/isamelody.png" alt="Isa Melody">
+        <div class="badge"><div class="n">Isa Melody</div><div class="r">Account Manager</div></div>
+      </div>
+      <div class="spec-body">
+        <div class="kk">A estratégia</div>
+        <h3>A mente por trás de cada decisão estratégica.</h3>
+        <p>A maioria das agências olha pro seu Instagram e enxerga conteúdo. <b>Eu olho pro seu negócio e enxergo o problema real</b> que o conteúdo precisa resolver.</p>
+        <div class="quote">Quando me sentei pra analisar a Ludmila, a primeira coisa que enxerguei não foi o feed. Foi a história. <b>20 anos fazendo unhas, clientes que ficam por 8 anos.</b> Uma mulher que começou a trabalhar aos 9 anos, construiu tudo com as mãos e agora quer usar a voz. Você não tem problema de produto. Tem um problema de visibilidade.</div>
+        <ul class="mini">
+          <li><span class="ix">01</span><span class="tx"><b>Diagnóstico de posicionamento</b><span>Quem você é além da nail designer — e qual mulher você quer alcançar: as que pararam de sonhar, e precisam de alguém que já esteve onde elas estão.</span></span></li>
+          <li><span class="ix">02</span><span class="tx"><b>Mapeamento da dor real</b><span>O que ela sente ao acordar sem perspectiva, ao achar que já passou da hora de tentar. Você resolve isso com técnica, fé e uma história que ninguém compra — porque é real.</span></span></li>
+          <li><span class="ix">03</span><span class="tx"><b>Proposta única de valor</b><span>20 anos de técnica + propósito devocional genuíno + a coragem de documentar a própria transição ao vivo. Essa combinação é o produto.</span></span></li>
+          <li><span class="ix">04</span><span class="tx"><b>Uma narrativa que une as 3 caixas</b><span>Nail, devocional e finanças com uma âncora de identidade — a mulher que não parou — deixando cada caixa falar com seu público sem perder a coerência.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRIS -->
+<section class="block dark">
+  <div class="wrap">
+    <div class="spec rev">
+      <div class="spec-body">
+        <div class="kk">A identidade visual</div>
+        <h3>Resgatar a identidade que já funcionava — e lapidar.</h3>
+        <p>Sou a Cristine, designer da Cloud. Olhei pro <b>@ludmilacarlaoficial</b> como seguidora e encontrei 6 pontos pra elevar a marca. A Ludmila já vem fazendo um bom trabalho sozinha — minha proposta é <b>potencializar</b>, com um olhar profissional e a paleta que ela já tem: azul marinho, cinza e branco.</p>
+        <ul class="mini">
+          <li><span class="ix">①</span><span class="tx"><b>Perda da identidade que já existia</b><span>O perfil já foi padronizado e transmitia profissionalismo. Essa consistência se perdeu — vamos resgatá-la.</span></span></li>
+          <li><span class="ix">②</span><span class="tx"><b>Aplicação consistente da paleta</b><span>Azul marinho (confiança), cinza (elegância) e branco (clareza) em todos os materiais, com estratégia.</span></span></li>
+          <li><span class="ix">③</span><span class="tx"><b>Fotos das unhas com apelo profissional</b><span>Close-ups bem iluminados, fundos neutros e ângulos que valorizam o trabalho — o cartão de visita da nail designer.</span></span></li>
+          <li><span class="ix">④</span><span class="tx"><b>Conteúdo com linha editorial</b><span>Equilíbrio entre trabalho, fé e vida pessoal — cada pilar com a identidade visual da marca.</span></span></li>
+          <li><span class="ix">⑤</span><span class="tx"><b>Stories padronizados</b><span>Templates com as cores da marca, fortalecendo a identidade todos os dias.</span></span></li>
+          <li><span class="ix">⑥</span><span class="tx"><b>Reels com identidade visual</b><span>Capas e elementos padronizados, mostrando o processo criativo das unhas — timelapses e finalização.</span></span></li>
+        </ul>
+        <p style="margin-top:18px">Criação: logotipo e variações, paleta aplicada, tipografia elegante, elementos gráficos com fé e sofisticação, e manual da marca pra nunca mais se perder.</p>
+        <div class="pills"><span>Azul marinho</span><span>Cinza</span><span>Branco</span></div>
+      </div>
+      <div class="spec-photo">
+        <img src="img/cris.png" alt="Cristine">
+        <div class="badge"><div class="n">Cristine</div><div class="r">Designer</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VINICIUS -->
+<section class="block">
+  <div class="wrap">
+    <div class="spec">
+      <div class="spec-photo">
+        <img src="img/vinicius.png" alt="Vinícius Rocha">
+        <div class="badge"><div class="n">Vinícius Rocha</div><div class="r">Gestor de Tráfego</div></div>
+      </div>
+      <div class="spec-body">
+        <div class="kk">O tráfego pago</div>
+        <h3>Transformar autoridade presencial em crescimento digital.</h3>
+        <p>A Ludmila já tem posicionamento consolidado e retenção altíssima. O tráfego entra pra <b>preencher as 22 cadeiras ociosas</b> e levar essa autoridade pra mais mulheres em BH — sem depender só de indicação.</p>
+        <ul class="mini">
+          <li><span class="ix">→</span><span class="tx"><b>Captação por geolocalização</b><span>Campanhas para mulheres de Belo Horizonte com interesse em beleza, estética, cuidado pessoal e serviços premium.</span></span></li>
+          <li><span class="ix">→</span><span class="tx"><b>Preencher a agenda ociosa</b><span>Gerar novos agendamentos de forma previsível, reduzindo a dependência exclusiva das indicações.</span></span></li>
+          <li><span class="ix">→</span><span class="tx"><b>Fortalecer a marca pessoal</b><span>Aumentar a presença e a autoridade da Ludmila na região, preparando terreno para os próximos passos.</span></span></li>
+          <li><span class="ix">→</span><span class="tx"><b>Base para os lançamentos</b><span>Investimentos controlados pra validar públicos e criar estrutura para futuros cursos, mentorias e produtos digitais.</span></span></li>
+        </ul>
+        <p style="margin-top:18px">Começamos com investimento estratégico e controlado, respeitando o momento atual — validando campanhas, identificando os públicos de maior conversão e construindo base sólida para expansão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISABEL -->
+<section class="block ink">
+  <div class="wrap">
+    <div class="spec rev">
+      <div class="spec-body">
+        <div class="kk">O conteúdo em vídeo</div>
+        <h3>Sua rotina, sua história e sua fé viram conteúdo que vende.</h3>
+        <p>Sou a Isabel, responsável pela <b>captação e edição de conteúdo</b>. Hoje você já tem autoridade. O que falta é mostrar essa autoridade pra mais pessoas.</p>
+        <p>Vamos transformar sua rotina, sua história, sua fé e sua experiência em <b>conteúdos que geram conexão, autoridade e vendas</b> — construindo uma marca pessoal forte para que as pessoas acompanhem sua trajetória, confiem em você e estejam prontas para seus futuros devocionais, cursos e projetos digitais.</p>
+        <div class="quote">O objetivo não é apenas aumentar seguidores. É construir uma audiência que <b>se identifica com você, acompanha sua evolução e compra aquilo que você acredita.</b></div>
+      </div>
+      <div class="spec-photo">
+        <img src="img/isabel.png" alt="Isabel">
+        <div class="badge"><div class="n">Isabel</div><div class="r">Vídeo & Conteúdo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 INVESTIMENTO -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-eyebrow">05 · O investimento</div>
+    <h2 class="sec-title">Tudo que está incluso</h2>
+    <p class="sec-sub">Veja o valor real de cada serviço — e o que você vai pagar de verdade no pacote fechado da Ludmila Carla. <b>(valores de exemplo — ajustamos com você)</b></p>
+    <div class="ptab">
+      <div class="prow"><span class="sv">Gestão de tráfego pago (Meta + Google Ads)</span><span class="vl">R$ 1.000,00</span></div>
+      <div class="prow"><span class="sv">Identidade visual e manual da marca</span><span class="vl">R$ 650,00</span></div>
+      <div class="prow"><span class="sv">Estratégia de marca pessoal e pauta editorial</span><span class="vl">R$ 780,00</span></div>
+      <div class="prow"><span class="sv">Captação e edição de conteúdo / reels</span><span class="vl">R$ 600,00</span></div>
+      <div class="prow"><span class="sv">Acompanhamento e relatório mensal</span><span class="vl">R$ 300,00</span></div>
+      <div class="prow sum"><span class="sv">Valor cheio dos serviços</span><span class="vl">R$ 3.330,00</span></div>
+    </div>
+
+    <div class="media-note">
+      <h4>Verba de mídia (à parte — paga direto às plataformas)</h4>
+      <div class="media-grid">
+        <div class="m"><div class="t">Mínimo viável</div><div class="v">R$ 300</div><div class="d">R$ 10/dia</div></div>
+        <div class="m best"><div class="t">Recomendado</div><div class="v">R$ 600</div><div class="d">R$ 20/dia</div></div>
+        <div class="m"><div class="t">Ideal p/ BH</div><div class="v">R$ 900</div><div class="d">R$ 30/dia</div></div>
+      </div>
+    </div>
+
+    <div class="anchor-wrap">
+      <div class="anchor-from">de <s>R$ 3.330/mês</s> por apenas</div>
+      <div class="anchor-price">R$ 600<small>/mês</small></div>
+      <div class="save-badge">Você economiza R$ 2.730 todo mês · mais de 80% de desconto</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 OFERTA -->
+<section class="block offer">
+  <div class="wrap">
+    <div class="sec-eyebrow">06 · Pronto pra começar</div>
+    <h2 class="sec-title">Bora transformar 20 anos<br>de história em presença?</h2>
+    <p class="sec-sub">Uma marca pessoal forte, uma agenda cheia e uma audiência que acompanha sua evolução e compra aquilo que você acredita.</p>
+    <a href="https://wa.me/5531996282119?text=Ol%C3%A1!%20Vim%20pela%20proposta%20da%20Ludmila%20Carla%20e%20quero%20come%C3%A7ar." class="cta">Quero começar agora →</a>
+    <div class="conditions">
+      <h3 class="cond-title">Condições da proposta</h3>
+      <div class="cond-grid">
+        <div class="cond"><span class="ci">⏳</span><div><b>Validade</b><span>Proposta válida por 15 dias</span></div></div>
+        <div class="cond"><span class="ci">💳</span><div><b>Pagamento</b><span>Pix, dinheiro ou cartão na assinatura</span></div></div>
+        <div class="cond"><span class="ci">🔁</span><div><b>Revisões</b><span>Incluídas em todos os entregáveis</span></div></div>
+        <div class="cond"><span class="ci">💬</span><div><b>Comunicação</b><span>WhatsApp, call ou presencial</span></div></div>
+        <div class="cond"><span class="ci">📦</span><div><b>Entregáveis</b><span>Formato digital (PDF, PNG, Canva)</span></div></div>
+        <div class="cond"><span class="ci">📈</span><div><b>Acompanhamento</b><span>Relatórios periódicos de resultado</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="Cloud Marketing">
+    <div class="slogan"><b>ideias que descem.</b> resultados sobem.</div>
+    <p class="big">Cloud Marketing</p>
+    <p>Proposta preparada exclusivamente para a Ludmila Carla · Belo Horizonte/MG</p>
+  </div>
+</footer>
+
+</body>
+</html>
